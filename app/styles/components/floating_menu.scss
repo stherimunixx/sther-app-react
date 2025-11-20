@@ -1,0 +1,102 @@
+.myNavbar {
+    background: $color-blue-gradient-01;
+    height: 70px;
+    width: 70px;
+    max-width: 90vw;
+    border-radius: 35px;
+    box-shadow: $shadow-01;
+    transition: height .5s ease, width .5s ease .5s, opacity 0.2s ease-in-out !important;
+
+    ul {
+        color: white;
+        li{
+            margin-bottom: 8px;
+            opacity: 0;
+            transform: translateY(-5px);
+            transition: opacity .5s, transform .5s;
+        }
+        li:hover {
+            font-size: 2rem;
+        }
+    }
+
+    .icon--logo {
+        fill: white;
+        position:absolute;
+        bottom: 0;
+        opacity: 0;
+        transition: opacity .5s ease .2s;
+    }
+
+    .hamburguer { 
+        height: 45px;
+        width: 45px;
+        bottom: 12px;
+        right: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        span {
+            position: absolute;
+            display: inline-block;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            top: 50%;
+            transition: all .2s;
+        }
+
+        :nth-child(1){
+            transform: translateY(-7px);
+        }
+        :nth-child(2){
+            transform: translateY(7px);
+        }
+    }
+
+}
+
+.myNavbar, .fade-in{
+    z-index: 0 !important
+}
+
+.myNavbar, .fade-in-active{
+    z-index: 30 !important
+}
+
+.myNavbar_active {
+    width: 400px;
+    height: 300px;
+    transition: width .5s ease, height .5s ease .5s, opacity 0.2s ease-in-out !important;
+    ul{
+        li{
+            opacity: 1;
+            transform: translateY(0);
+            transition: font-size .2s, opacity 0.5s ease 1.2s;
+        }
+        :nth-child(2){
+            transition: font-size .2s, opacity 0.5s ease 1.4s;
+        }
+        :nth-child(3){
+            transition: font-size .2s, opacity 0.5s ease 1.6s;
+        }
+        :nth-child(4){
+            transition: font-size .2s, opacity 0.5s ease 1.8s;
+        }
+
+    }
+
+    .icon--logo{
+        opacity: 1;
+    }
+    .hamburguer{
+        span {
+            transform: translateY(0px) !important;
+        }
+        :nth-child(1){
+            transform: rotate(45deg) !important;
+        }
+        :nth-child(2){
+            transform: rotate(-45deg) !important;
+        }
+    }
+}

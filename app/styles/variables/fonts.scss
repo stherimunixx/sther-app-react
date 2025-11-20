@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Coolvetica";
+  src: url("../../typography/coolvetica/CoolveticaRg.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; // recomendable para evitar FOUT
+}
+
+$tg-coolvetica: "Coolvetica", sans-serif;

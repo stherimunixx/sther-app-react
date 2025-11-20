@@ -1,0 +1,19 @@
+.flex-4-2-1 {
+    display: flex;
+    flex-wrap: wrap;
+    > * {
+        width: 100%;
+    }
+
+    @include md {
+        > * {
+            width: 50%;
+        }
+    }
+    @include lg {
+        > * {
+            width: 25%;
+        }
+    }
+}
+

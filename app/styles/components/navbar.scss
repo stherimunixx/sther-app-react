@@ -1,0 +1,6 @@
+.navbar {
+    li{
+        @extend .hover-opacity;
+        cursor: pointer;        
+    }
+}

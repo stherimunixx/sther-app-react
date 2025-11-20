@@ -1,0 +1,75 @@
+// _breakpoints.scss
+// Breakpoints matching Tailwind CSS default values
+$screens: (
+  "sm": 640px,   // small (large phones / portrait)
+  "md": 768px,   // medium (tablets / iPad portrait)
+  "lg": 1100px,  // large (iPad landscape / small laptops)
+  "xl": 1280px,  // extra large (desktop)
+  "2xl": 1536px  // 2x extra large (large monitors)
+);
+
+// Helper function: get breakpoint value by key
+@function screen($key) {
+  @if map-has-key($screens, $key) {
+    @return map-get($screens, $key);
+  }
+  @error "Unknown breakpoint `#{$key}`. Available keys: #{map-keys($screens)}";
+}
+
+// Mixin: min-width media query (mobile-first)
+@mixin up($key) {
+  $value: screen($key);
+  @media (min-width: $value) {
+    @content;
+  }
+}
+
+// Mixin: max-width media query (up to, but not including breakpoint)
+// subtract 0.02px to avoid overlap due to subpixel rounding
+@mixin down($key) {
+  $value: screen($key);
+  $max: $value - 0.02px;
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+// Mixin: between lower and upper breakpoints (inclusive lower, exclusive upper)
+@mixin between($lower-key, $upper-key) {
+  $lower: screen($lower-key);
+  $upper: screen($upper-key);
+  $max: $upper - 0.02px;
+  @media (min-width: $lower) and (max-width: $max) {
+    @content;
+  }
+}
+
+// Convenience mixins by name
+@mixin sm { @include up("sm") { @content; } }
+@mixin md { @include up("md") { @content; } }
+@mixin lg { @include up("lg") { @content; } }
+@mixin xl { @include up("xl") { @content; } }
+@mixin xxl { @include up("2xl") { @content; } } // alias for 2xl
+
+// Example usage (comment out or remove in production)
+/*
+.selector {
+  // default styles (mobile-first)
+  padding: 12px;
+
+  // from md and up
+  @include md {
+    padding: 20px;
+  }
+
+  // only between md and lg
+  @include between("md", "lg") {
+    background: #f5f5f5;
+  }
+
+  // up to (but not including) md
+  @include down("md") {
+    font-size: 14px;
+  }
+}
+*/

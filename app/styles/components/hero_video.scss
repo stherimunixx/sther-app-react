@@ -1,0 +1,15 @@
+/* Si la pantalla es más “alta” que 16:9 */
+@media (max-aspect-ratio: 16/9) {
+  .hero_video video {
+    width: auto;
+    height: 100%;
+  }
+}
+
+/* Si la pantalla es más “ancha” que 16:9 */
+@media (min-aspect-ratio: 16/9) {
+  .hero_video video {
+    width: 100%;
+    height: auto;
+  }
+}

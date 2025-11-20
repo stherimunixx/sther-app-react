@@ -1,3 +1,92 @@
+// VARIABLES
+@import 'styles/variables/fonts';
+@import 'styles/variables/colors';
+@import 'styles/variables/shadows';
+
+// MIXINS
+@import 'styles/mixins/breakpoints';
+
+// FLEX
+@import 'styles/flex/flex-4-2-1';
+
+// SECTIONS
+@import 'styles/sections/hero';
+
+//COMPONENTS
+@import 'styles/components/navbar';
+@import 'styles/components/hero_video';
+@import 'styles/components/floating_menu';
+@import 'styles/components/filtered_screen_background_image';
+@import 'styles/components/background_screen_video.scss';
+
 body {
     background-color: white !important;
+    font-family: $tg-coolvetica ;
+
 }
+
+.min-h-screen{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+video {
+    max-width: none;
+}
+
+button {
+    background: $color-blue-gradient-01;
+    border: 1px solid $color-blue-01;
+    box-shadow: $shadow-01;
+    border-radius:50px;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+button:hover {
+    background: transparent;
+    border: 1px solid white;
+}
+
+// HOVER TRANSITIONS
+
+//Hover opacity
+
+.hover-opacity {
+    opacity: 1;
+    transition: all .2s;
+}
+
+.hover-opacity:hover {
+    opacity: 0.6;
+}
+
+// TRANSITIONS
+
+//Rotate back and disappear
+
+.rotate-back-and-disappear {
+  opacity: 1;
+  transform: rotateX(0deg);
+  transform-origin: left center;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.rotate-back-and-disappear-active {
+  opacity: 0;
+  transform: rotateX(90deg);
+}
+
+// fade-in
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.fade-in-active {
+  opacity: 1;
+}
+

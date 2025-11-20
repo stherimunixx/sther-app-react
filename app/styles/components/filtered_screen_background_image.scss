@@ -1,0 +1,7 @@
+.filtered_screen_background_image {
+    min-height: 100vh;
+
+    @include lg {
+        aspect-ratio: 16/9;
+    }
+}
