@@ -22,7 +22,7 @@ export default function MakeOrder() {
           ">
             <h1 className="
               text-6xl lg:text-9xl
-              lg:w-[800px]
+              lg:w-[1200px]
             ">
               Encarga tu tarta online o en el <br/><a href="">747 41 88 20</a>.
             </h1>
